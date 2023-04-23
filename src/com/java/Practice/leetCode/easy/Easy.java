@@ -25,6 +25,9 @@ public class Easy {
 		int nums3[] = {2,2,1,1,1,2,2};
 		System.out.println(majorityElement(nums3));
 		System.out.println("=================");
+		System.out.println(strStr("abc", "c"));
+
+
 	}
     /*136. Single Number
     Given a non-empty array of integers nums, every element
@@ -177,4 +180,29 @@ Output: 2*/
 		}
 		return max;
 	}
+
+	public static int[] getConcatenation(int[] nums) {
+		int [] ans = new int [nums.length*2];
+		for (int i = 0; i < nums.length;i++){
+			ans[i]=nums[i];
+			ans[i+nums.length]=nums[i];
+		}return ans;
+	}
+	//28. Find the Index of the First Occurrence in a String
+/*	Given two strings needle and haystack, return the index of the
+	first occurrence of needle in haystack, or -1 if needle is not part of haystack.*/
+	public static int strStr(String haystack, String needle) {
+		int l1 = haystack.length(), l2 = needle.length();
+		if (l1 < l2) {
+			return -1;
+		} else if (l2 == 0) {
+			return 0;
+		}
+		for (int i = 0; i <= l1-l2;i++){
+			if (haystack.substring(i,i+l2).equals(needle)){
+				return i;
+			}
+		}return -1;
+	}
+
 }

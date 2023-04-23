@@ -1,5 +1,7 @@
 package com.java.Practice.codingBat;
 
+import java.util.Arrays;
+
 public class Array2 {
     public static void main(String[] args) {
         int sum[] = {1, 2, 2, 1};
@@ -34,6 +36,12 @@ public class Array2 {
         System.out.println("==================");
         int sum10[] = {1, 3, 1, 3, 1, 3, 4, 3};
         System.out.println(haveThree(sum10));
+        System.out.println("==================");
+        int sum11[] = {1, 2, 4};
+        System.out.println(tripleUp(sum11));
+        System.out.println("==================");
+        int sum12[] = {6, 2, 5, 3};
+        System.out.println((sum12));
 
     }
 
@@ -318,15 +326,33 @@ public class Array2 {
        haveThree([3, 4, 3, 3, 4]) → false*/
     public static boolean haveThree(int[] nums) {
         int counter = 0;
-        for (int i = 0; i <= nums.length-1; i+=2) {
+        for (int i = 0; i <= nums.length - 1; i += 2) {
             if (nums[i] == 3) {
                 counter++;
-                if (counter==3){
+                if (counter == 3) {
                     return true;
                 }
             }
-        } return false;
+        }
+        return false;
     }
+
+
+    /* Return true if the array contains, somewhere, three increasing adjacent
+    numbers like .... 4, 5, 6, ... or 23, 24, 25.
+
+
+     tripleUp([1, 4, 5, 6, 2]) → true
+     tripleUp([1, 2, 3]) → true
+     tripleUp([1, 2, 4]) → false*/
+    public static boolean tripleUp(int[] nums) {
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (nums[i] + 1 == nums[i + 1] && nums[i + 1] + 1 == nums[i + 2]) {
+                return true;
+            }
+        }return false;
+    }
+
 }
 
 

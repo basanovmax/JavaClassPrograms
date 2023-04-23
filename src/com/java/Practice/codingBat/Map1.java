@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Map1 {
 	public static void main(String[] args) {
-/*		Java Map API! 
+/*		Java Map API!
 		Make a new empty map
 		Map<String, String> map = new HashMap<String, String>();
 		map.get(key) -- retrieves the stored value for a key, or null if that key is not present in the map.

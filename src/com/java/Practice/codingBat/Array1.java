@@ -3,7 +3,7 @@ package com.java.Practice.codingBat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static com.java.class34.Bank.num;
+
 
 public class Array1 {
 
