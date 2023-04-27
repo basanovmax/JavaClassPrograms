@@ -22,10 +22,15 @@ public class Easy {
 		System.out.println("=================");
 		System.out.println(lengthOfLastWord("   fly me   to   the moon  "));
 		System.out.println("=================");
-		int nums3[] = {2,2,1,1,1,2,2};
+		int nums3[] = {2, 2, 1, 1, 1, 2, 2};
 		System.out.println(majorityElement(nums3));
 		System.out.println("=================");
 		System.out.println(strStr("abc", "c"));
+		System.out.println("=================");
+		int nums4[] = {1,3,5,6};
+		System.out.println(searchInsert(nums4, 7));
+		System.out.println("=================");
+		System.out.println(addDigits(38));
 
 
 	}
@@ -173,8 +178,7 @@ Output: 2*/
 		for (int i = 1; i < nums.length; i++) {
 			if (max < nums[i]) {
 				max = nums[i];
-			}
-			else{
+			} else {
 				return max;
 			}
 		}
@@ -182,12 +186,14 @@ Output: 2*/
 	}
 
 	public static int[] getConcatenation(int[] nums) {
-		int [] ans = new int [nums.length*2];
-		for (int i = 0; i < nums.length;i++){
-			ans[i]=nums[i];
-			ans[i+nums.length]=nums[i];
-		}return ans;
+		int[] ans = new int[nums.length * 2];
+		for (int i = 0; i < nums.length; i++) {
+			ans[i] = nums[i];
+			ans[i + nums.length] = nums[i];
+		}
+		return ans;
 	}
+
 	//28. Find the Index of the First Occurrence in a String
 /*	Given two strings needle and haystack, return the index of the
 	first occurrence of needle in haystack, or -1 if needle is not part of haystack.*/
@@ -198,11 +204,43 @@ Output: 2*/
 		} else if (l2 == 0) {
 			return 0;
 		}
-		for (int i = 0; i <= l1-l2;i++){
-			if (haystack.substring(i,i+l2).equals(needle)){
+		for (int i = 0; i <= l1 - l2; i++) {
+			if (haystack.substring(i, i + l2).equals(needle)) {
 				return i;
 			}
-		}return -1;
+		}
+		return -1;
 	}
 
+	/*35. Search Insert Position
+	Given a sorted array of distinct integers and a target value,
+	return the index if the target is found. If not, return the index where
+	it would be if it were inserted in order.
+	You must write an algorithm with O(log n) runtime complexity.*/
+	public static int searchInsert(int[] nums, int target) {
+		int i;
+		for (i = 0; i < nums.length; i++) {
+			if (nums[i] == target) {
+				return i;
+			} else {
+				if (nums[i] > target) {
+					return i;
+				}
+			}
+		}
+		return i;
+	}
+	/*258. Add Digits
+	Given an integer num, repeatedly add all its digits until
+	the result has only one digit, and return it.
+	Example 1:
+Input: num = 38
+Output: 2
+Explanation: The process is
+38 --> 3 + 8 --> 11
+11 --> 1 + 1 --> 2
+Since 2 has only one digit, return it.*/
+	public static int addDigits(int num) {
+	return (num-1)%9+1;
+	}
 }
